@@ -1,0 +1,228 @@
+@font-face {
+    font-family: 'AmericanTypewriter';
+    src: url('AmericanTypewriter.ttc') format('truetype');
+}
+
+@font-face {
+    font-family: 'GeistMono';
+    src: url('GeistMono-VariableFont_wght.ttf') format('truetype');
+}
+
+body {
+    background-color: black;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'><circle cx='8' cy='8' r='6' fill='white'/></svg>") 8 8, auto;
+}
+
+a {
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'><circle cx='8' cy='8' r='6' fill='%230077FA'/></svg>") 8 8, pointer;
+}
+
+
+.icon {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.15s ease;
+}
+
+.icon:hover {
+    transform: scale(1.05);
+}
+
+.photo-grid {
+    position: absolute;
+    top: 20px;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    grid-template-rows: repeat(3, 1fr);
+    row-gap: 16px;
+    column-gap: 20px;
+    align-items: center;
+    justify-items: center;
+}
+
+.center {
+    text-align: center;
+}
+
+.title {
+    display: inline-block;
+    border: 2px solid white;
+    border-radius: 40px;
+    width: 180px;
+    height: 40px;
+    line-height: 38px;
+    color: white;
+    font-size: 20px;
+    font-family: 'AmericanTypewriter';
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+.detail-title-block .title {
+    width: 260px;
+}
+.title-date {
+    color: white;
+    font-size: 11px;
+    font-family: 'GeistMono';
+    margin-top: 10px;
+    white-space: nowrap;
+}
+
+.footer-label {
+    position: fixed;
+    bottom: 20px;
+    color: white;
+    font-size: 14px;
+    font-family: 'AmericanTypewriter';
+}
+
+.footer-left {
+    left: 20px;
+}
+
+.footer-right {
+    right: 20px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+}
+
+.blink-caption {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 12px;
+    font-family: 'GeistMono';
+    white-space: nowrap;
+    animation: blink 3s ease-in-out infinite;
+}
+
+.page {
+    width: 800px;
+}
+
+.nav {
+    display: inline-block;
+    color: white;
+    font-family: 'GeistMono';
+    font-size: 13px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: transform 0.15s ease;
+}
+
+.nav-back:hover {
+    transform: translateX(-8px);
+}
+
+.nav-next:hover {
+    transform: translateX(8px);
+}
+
+.detail-layout {
+    display: grid;
+    grid-template-columns: 440px 340px;
+    grid-template-rows: auto 200px 220px auto;
+    column-gap: 20px;
+    row-gap: 20px;
+}
+
+.top-nav {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: start;
+    transform: translateX(-40px);
+}
+
+.detail-title-block {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: center;
+}
+
+.main-icon {
+    grid-column: 1;
+    grid-row: 2 / span 2;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    background-color: black;
+    transform: translateX(-40px);
+}
+
+.description-box {
+    grid-column: 2;
+    grid-row: 2;
+    height: 100%;
+    border: 2px solid white;
+    color: white;
+    font-family: 'GeistMono';
+    font-size: 13px;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.photos {
+    grid-column: 2;
+    grid-row: 3;
+    display: flex;
+    gap: 20px;
+}
+
+.next-link {
+    grid-column: 2;
+    grid-row: 4;
+    text-align: right;
+}
+
+.photo-wrap {
+    position: relative;
+    width: 160px;
+    height: 220px;
+}
+
+.photo {
+    width: 160px;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.photo-caption {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #0077FA;
+    color: white;
+    font-family: 'GeistMono';
+    font-size: 11px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+}
+
+.photo-wrap:hover .photo-caption {
+    opacity: 1;
+}

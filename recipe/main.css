@@ -1,0 +1,640 @@
+/* my fonts (adobe font in index) */
+
+@font-face {
+    font-family: "Satoshi";
+    src: url("fonts/Satoshi-Bold.otf");
+    font-weight: 700;
+    font-style: normal;
+}
+ 
+@font-face {
+    font-family: "Satoshi";
+    src: url("fonts/Satoshi-BoldItalic.otf");
+    font-weight: 700;
+    font-style: italic;
+}
+ 
+@font-face {
+    font-family: "Satoshi";
+    src: url("fonts/Satoshi-MediumItalic.otf");
+    font-weight: 500;
+    font-style: italic;
+}
+
+/* my color palette */
+
+:root {
+    --darkbrown: #32131A;
+    --lightbrown: #4A212A;
+    --yellow: #ECE65C;
+    --green: #6EC09A;
+    --purple: #B04F85;
+    --pink: #F17B9E;
+    --red: #F15143;
+    --orange: #FA7528;
+}
+
+/* background color and fixing margins and no underlined links */
+
+body {
+    background: #32131A;
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, p {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* full site dimensions/settings */
+
+.site {
+    width: 1512px;
+    height: 945px;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    font-family: "Satoshi";
+    font-weight: 700;
+    timeline-scope: --t-title, --t-tools, --t-collect, --t-cut, --t-collage, --t-results;
+}
+
+/* scrollable content area */
+
+.content {
+    width: 1050px;
+    height: 100%;
+    position: absolute;
+    overflow-y: auto;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+
+}
+
+/* sectioning the content area */
+
+.section {
+    position: relative;
+}
+
+.section--title {
+    height: 1131px; 
+    --accent:var(--yellow);
+    view-timeline: --t-title;
+}
+
+.section--tools {
+    height: 1384px; 
+    --accent:var(--green);
+    view-timeline: --t-tools;
+}
+
+.section--collect {
+    height: 2042px; 
+    --accent:var(--purple);
+    view-timeline: --t-collect;
+}
+
+.section--cut {
+    height: 2258px; 
+    --accent:var(--pink);
+    view-timeline: --t-cut;
+}
+
+.section--collage {
+    height: 2146px; 
+    --accent:var(--red);
+    view-timeline: --t-collage;
+}
+
+.section--results {
+    height: 1670px; 
+    --accent:var(--orange);
+    view-timeline: --t-results;
+}
+
+/* one man's trash title */
+
+.title-box {
+    background: var(--yellow);
+    width: 920px;
+    height: 400px;
+    left: 50px;
+    top: 170px;
+    border-radius: 40px;
+    position: absolute;
+    overflow: hidden;
+}
+
+.title-text {
+    color: var(--red);
+    font-family: "rafaella";
+    font-size: 150px;
+    line-height: 135px;
+    top: 90px;
+    left: 0;
+    right: 0;
+    position: absolute;
+    text-align: center;
+    animation: drop-in 1.4s;
+    transform-origin: bottom;
+}
+
+@keyframes drop-in {
+    0%   { translate: 0 -400px; scale: 1 1;       animation-timing-function: ease-in; }
+    40%  { translate: 0 0;      scale: 1.08 0.9;  animation-timing-function: ease-out; }
+    55%  { translate: 0 -70px;  scale: 0.97 1.04; animation-timing-function: ease-in; }
+    68%  { translate: 0 0;      scale: 1.04 0.95; animation-timing-function: ease-out; }
+    78%  { translate: 0 -24px;  scale: 1 1;       animation-timing-function: ease-in; }
+    88%  { translate: 0 0;      scale: 1.02 0.98; animation-timing-function: ease-out; }
+    94%  { translate: 0 -6px;   scale: 1 1;       animation-timing-function: ease-in; }
+    100% { translate: 0 0;      scale: 1 1; }
+}
+
+/* hole punching the title card */
+
+.punch-grid {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(20, 46px);
+    overflow: hidden;
+    border-radius: 40px;
+    cursor: url("click-cursor.svg") 10 10, pointer;
+}
+
+.punch-grid input {
+    appearance: none;
+    width: 46px;
+    height: 50px;
+    margin: 0;
+    cursor: inherit;
+}
+
+.punch-grid input:checked {
+    background: radial-gradient(circle, var(--darkbrown) 23px, transparent 23.5px);
+    pointer-events: none;
+    animation: punch 0.15s ease-out;
+}
+
+@keyframes punch {
+    from { scale: 0; }
+    to   { scale: 1; }
+}
+
+/* pill label decorations (border, fill, circle, and tool arrow) */
+
+.pill {
+    color: var(--accent);
+    height: 80px;
+    font-size: 32px;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    display: flex;
+    border: 5px solid var(--accent);
+    border-radius: 40px;
+}
+
+.pill--fill {
+    color: var(--darkbrown);
+    background: var(--accent);
+}
+
+.pill--circle {
+    width: 80px;
+    height: 80px;
+}
+
+.pill--tarrow {
+    font-size: 48px;
+    transition: translate 0.2s;
+}
+
+.pill--tarrow:hover {
+    translate: 0 10px;
+}
+
+/* content elements */
+
+.section-intro {
+    background: var(--accent);
+    color: var(--darkbrown);
+    font-size: 32px;
+    width: 920px;
+    height: 80px;
+    top: 50px;
+    left: 50px;
+    position: absolute;
+    padding: 0 40px;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    border-radius: 40px;
+}
+
+.section-main {
+    background: var(--accent);
+    width: 920px;
+    height: 202px;
+    left: 50px;
+    top: 170px;
+    position: absolute;
+    border-radius: 40px;
+}
+
+.section-title {
+    color: var(--yellow);
+    font-family: "rafaella";
+    font-size: 120px;
+    right: 30px;
+    bottom: -60px;
+    position: absolute;
+    transform-origin: center;
+    transition: scale 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.section-subtitle {
+    color: var(--yellow);
+    font-family: "Satoshi";
+    font-size: 32px;
+    font-weight: 700;
+    font-style: normal;
+    top: 30px;
+    right: 30px;
+    position: absolute;
+}
+
+.instruction {
+    color: var(--accent);
+    font-size: 56px;
+    width: 840px;
+    left: 130px;
+    position: absolute;
+}
+
+.instruction-number {
+    color: var(--darkbrown);
+    background: var(--accent);
+    font-size: 36px;
+    width: 60px;
+    height: 60px;
+    left: -80px;
+    top: 7px;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border-radius: 50%;
+}
+
+.italic {
+    font-style: italic;
+    font-weight: 500;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.example {
+    width: 777px;
+    height: 177px;
+    left: 120px;
+    position: absolute;
+}
+
+.example-title {
+    color: var(--yellow);
+    font-family: "rafaella";
+    font-size: 120px;
+    left: 0;
+    right: 0;
+    bottom: -53px;
+    position: absolute;
+    text-align: center;
+    transform-origin: center;
+    transition: scale 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.example-subtitle {
+    color: var(--yellow);
+    font-size: 32px;
+    left: 275px;
+    top: 123px;
+    position: absolute;
+}
+
+.photo {
+    background: var(--lightbrown);
+    border-radius: 40px;
+    position: absolute;
+    overflow: hidden;
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.photo-caption {
+    background: var(--accent);
+    color: var(--darkbrown);
+    font-size: 24px;
+    padding: 8px 20px;
+    top: 20px;
+    left: 50%;
+    translate: -50% 0;
+    position: absolute;
+    border-radius: 40px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+}
+
+.photo:hover .photo-caption {
+    opacity: 1;
+}
+
+.photo--267 {
+    width: 267px;
+    height: 267px;
+}
+
+.photo--281 {
+    width: 281px;
+    height: 281px;
+}
+
+.photo--388 {
+    width: 388px;
+    height: 388px;
+}
+
+.photo--404 {
+    width: 404px;
+    height: 404px;
+}
+
+/* rafaella titles grow on hover */
+
+.section-title:hover,
+.example-title:hover,
+.person:hover {
+    scale: 1.1;
+}
+
+/* collect page diagram */
+
+.trash-label {
+    color: var(--accent);
+    font-size: 32px;
+    height: 48px;
+    align-items: center;
+    position: absolute;
+    display: flex;
+}
+
+.trash-label--rightalign {
+    justify-content: flex-end;
+}
+
+.lines {
+    background: var(--purple);
+    height: 5px;
+    position: absolute;
+    transform-origin: left;
+    pointer-events: none;
+}
+
+/* results page examples */
+
+.example-number {
+    color: var(--yellow);
+    font-size: 32px;
+    height: 54px;
+    left: 80px;
+    align-items: center;
+    position: absolute;
+    display: flex;
+}
+
+.person {
+    color: var(--yellow);
+    font-family: "rafaella";
+    font-size: 120px;
+    width: 777px;
+    height: 151px;
+    left: 163px;
+    align-items: flex-end;
+    justify-content: flex-end;
+    position: absolute;
+    display: flex;
+    translate: 0 53px;
+    transform-origin: center;
+    transition: scale 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.step-label {
+    color: var(--accent);
+    font-size: 32px;
+    width: 267px;
+    text-align: center;
+    position: absolute;
+}
+
+/* static menu */
+
+.menu {
+    width: 462px;
+    height: 100%;
+    left: 1050px;
+    position: absolute;
+}
+
+.menu-button {
+    color: var(--yellow);
+    background: var(--btn);
+    font-family: "rafaella";
+    width: 350px;
+    left: 56px;
+    border-radius: 40px;
+    position: absolute;
+}
+
+.menu-button--title { 
+    top: 50px;  
+    height: 126px; 
+    --btn: var(--yellow); 
+    color: var(--red);
+}
+
+.menu-button--tools { 
+    top: 176px; 
+    height: 144px; 
+    --btn: var(--green); 
+}
+
+.menu-button--collect { 
+    top: 320px; 
+    height: 144px; 
+    --btn: var(--purple); 
+}
+
+.menu-button--cut { 
+    top: 464px; 
+    height: 144px; 
+    --btn: var(--pink); 
+}
+
+.menu-button--collage {
+    top: 608px; 
+    height: 144px; 
+    --btn: var(--red); 
+}
+
+.menu-button--results { 
+    top: 752px; 
+    height: 144px; 
+    --btn: var(--orange); 
+}
+
+.menu-title {
+    font-size: 96px;
+    top: -48px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    position: absolute;
+}
+
+.menu-name {
+    font-size: 48px;
+    top: 48px;
+    right: 33px;
+    position: absolute;
+}
+
+.menu-number {
+    font-size: 32px;
+    top: 12px;
+    left: 32px;
+    position: absolute;
+}
+
+.menu-button:hover {
+    color: var(--btn);
+    background: transparent;
+    box-shadow: inset 0 0 0 5px var(--btn);
+}
+
+/* scroll animation/interaction */
+
+.scroll-road {
+    background: var(--lightbrown);
+    width: 30px;
+    height: 846px;
+    top: 50px;
+    left: 1020px;
+    border-radius: 40px;
+    position: absolute;
+    pointer-events: none;
+}
+
+.scroll-ball {
+    background: var(--yellow);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+
+    /* animation settings */
+
+    animation: ball-title, ball-tools, ball-collect, ball-cut, ball-collage, ball-results forwards;
+    animation-timing-function: linear;
+    animation-range: exit-crossing, exit-crossing, exit-crossing, exit-crossing, exit-crossing, exit-crossing 0% entry-crossing 100%;
+    animation-timeline: --t-title, --t-tools, --t-collect, --t-cut, --t-collage, --t-results;
+}
+
+@keyframes ball-title {
+    from {
+        translate: 0 0;
+        background: var(--yellow);
+    }
+
+    to {
+        translate: 0 126px;
+        background: var(--yellow);
+    }
+}
+
+@keyframes ball-tools {
+    from {
+        translate: 0 126px;
+        background: var(--green);
+    }
+
+    to {
+        translate: 0 270px;
+        background: var(--green);
+    }
+}
+
+@keyframes ball-collect {
+    from {
+        translate: 0 270px;
+        background: var(--purple);
+    }
+
+    to {
+        translate: 0 414px;
+        background: var(--purple);
+    }
+}
+
+@keyframes ball-cut {
+    from {
+        translate: 0 414px;
+        background: var(--pink);
+    }
+
+    to {
+        translate: 0 558px;
+        background: var(--pink);
+    }
+}
+
+@keyframes ball-collage {
+    from {
+        translate: 0 558px;
+        background: var(--red);
+    }
+
+    to {
+        translate: 0 702px;
+        background: var(--red);
+    }
+}
+
+@keyframes ball-results {
+    from {
+        translate: 0 702px;
+        background: var(--orange);
+    }
+
+    to {
+        translate: 0 816px;
+        background: var(--orange);
+    }
+}

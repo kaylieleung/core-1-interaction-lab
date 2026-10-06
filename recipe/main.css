@@ -130,7 +130,6 @@ a {
     top: 170px;
     border-radius: 40px;
     position: absolute;
-    overflow: hidden;
 }
 
 .title-text {
@@ -143,19 +142,6 @@ a {
     right: 0;
     position: absolute;
     text-align: center;
-    animation: drop-in 1.4s;
-    transform-origin: bottom;
-}
-
-@keyframes drop-in {
-    0%   { translate: 0 -400px; scale: 1 1;       animation-timing-function: ease-in; }
-    40%  { translate: 0 0;      scale: 1.08 0.9;  animation-timing-function: ease-out; }
-    55%  { translate: 0 -70px;  scale: 0.97 1.04; animation-timing-function: ease-in; }
-    68%  { translate: 0 0;      scale: 1.04 0.95; animation-timing-function: ease-out; }
-    78%  { translate: 0 -24px;  scale: 1 1;       animation-timing-function: ease-in; }
-    88%  { translate: 0 0;      scale: 1.02 0.98; animation-timing-function: ease-out; }
-    94%  { translate: 0 -6px;   scale: 1 1;       animation-timing-function: ease-in; }
-    100% { translate: 0 0;      scale: 1 1; }
 }
 
 /* hole punching the title card */

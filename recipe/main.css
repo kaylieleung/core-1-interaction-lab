@@ -109,7 +109,7 @@ a {
 }
 
 .section--collage {
-    height: 2146px; 
+    height: 2309px; 
     --accent:var(--red);
     view-timeline: --t-collage;
 }

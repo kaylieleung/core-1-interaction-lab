@@ -1,20 +1,58 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>kaylie leung — directory</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <style>
+            @font-face {
+                font-family: "Satoshi";
+                src: url("fonts/Satoshi-Bold.otf");
+                font-weight: 700;
+            }
+
+            body {
+                background: #32131A;
+                height: 100vh;
+                margin: 0;
+                display: grid;
+                place-items: center;
+            }
+
+            .directory {
+                display: grid;
+                grid-template-columns: repeat(2, 300px);
+                gap: 50px;
+            }
+
+            .directory a {
+                color: #ECE65C;
+                font-family: "Satoshi", sans-serif;
+                font-weight: 700;
+                font-size: 24px;
+                height: 80px;
+                padding-top: 4px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 40px;
+                text-decoration: none;
+            }
+
+            .red    { background: #F15143; }
+            .pink   { background: #F17B9E; }
+            .purple { background: #B04F85; }
+            .orange { background: #FA7528; }
+        </style>
     </head>
     <body>
-        Hello World! :D
-        
-        <script src="" async defer></script>
+        <nav class="directory">
+            <a class="red" href="journal-walk/index.html">journal a walk</a>
+            <a class="pink" href="interview/index.html">interview</a>
+            <a class="purple" href="recipe/index.html">recipe</a>
+            <a class="orange" href="lecture css/example-demo-3.html">lecture css</a>
+        </nav>
     </body>
 </html>

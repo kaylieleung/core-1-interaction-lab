@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Position property</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			height: 100vh;
+			width: 100vh;
+		}
+
+		.large {
+			background-color: #309BA9;
+			width: 500px;
+			height: 625px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			border-bottom: 75px solid #E893B0;
+		}
+
+		.box1 {
+			width: 175px;
+			height: 175px;
+			background-color: #184E96;
+			position: absolute;
+			top: 100px;
+			right: 95px;
+		}
+
+        .box2 {
+			width: 175px;
+			height: 350px;
+			background-color: #D3D92B;
+			position: absolute;
+			top: 200px;
+			left: 35px;
+		}
+
+        .box3 {
+			width: 175px;
+			height: 250px;
+			background-color: #84C447;
+			position: absolute;
+			top: 300px;
+			right: 95px;
+		}
+
+		.small1 {
+			width: 120px;
+			height: 120px;
+			background-color: #72B257;
+			padding: 10px;
+			position: absolute;
+			top: 26.5px;
+			left: 26.5px;
+		}
+        .small2 {
+			width: 120px;
+			height: 280px;
+			background-color: #F16334;
+			padding: 10px;
+			position: absolute;
+			top: 35px;
+			left: 26.5px;
+		}
+        .small3 {
+			width: 120px;
+			height: 190px;
+			background-color: #309BA9;
+			padding: 10px;
+			position: absolute;
+			top: 30px;
+			left: 26.5px;
+		}
+		.window1 {
+			width: 100px;
+			height: 26.5px;
+			background-color: #E53444;
+			display: inline-block;
+		}
+		.window1:nth-of-type(1) {
+			margin-bottom: 6px;
+		}
+        .window1:nth-of-type(2) {
+			margin-bottom: 6px;
+		}
+        .window2 {
+			width: 45px;
+			height: 260px;
+			background-color: #86BACB;
+			display: inline-block;
+		}
+		.window2:nth-of-type(1) {
+			margin-right: 6px;
+		}
+        .window3 {
+			width: 26.5px;
+			height: 170px;
+			background-color: #F4CB17;
+			display: inline-block;
+		}
+		.window3:nth-of-type(1) {
+			margin-right: 6px;
+		}
+        .window3:nth-of-type(2) {
+			margin-right: 6px;
+		}
+		.connector {
+			width: 25px;
+			height: 510px;
+			background-color: #02734A;
+			position: absolute;
+			top: 40px;
+			right: 35px;
+		}
+		.connector__corner1 {
+			width: 135px;
+			height: 25px;
+			background-color: #02734A;
+            position: absolute;
+            right: 25px;
+		}
+        .connector__corner2 {
+			width: 25px;
+			height: 50px;
+			background-color: #02734A;
+            position: absolute;
+            top: 50px;
+            right: 170px;
+		}
+		.stripe {
+			width: 500px;
+			height: 25px;
+			background-color: #F2385A;
+			position: absolute;
+			top: 575px;
+			left: 0px;
+		}
+	</style>
+</head>
+
+<body>
+	<a href="example-demo-3.html">
+    <button>coding challenge</button>
+    </a>
+	<div class="large">
+		<div class="box1">
+			<div class="small1">
+			    <div class="window1"></div>
+			    <div class="window1"></div>
+                <div class="window1"></div>
+		    </div>
+		</div>
+        <div class="box2">
+			<div class="small2">
+			    <div class="window2"></div>
+			    <div class="window2"></div>
+		    </div>
+		</div>
+        <div class="box3">
+			<div class="small3">
+			    <div class="window3"></div>
+			    <div class="window3"></div>
+                <div class="window3"></div>
+		    </div>
+		</div>
+		<div class="connector">
+			<div class="connector__corner1"></div>
+		</div>
+        <div class="connector__corner2"></div>
+        <div class="stripe"></div>
+	</div>
+</body>
+
+</html>

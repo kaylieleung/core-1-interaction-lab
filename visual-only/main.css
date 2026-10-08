@@ -1,0 +1,152 @@
+@font-face {
+  font-family: "Averia Libre";
+  src: url("AveriaLibre-Regular.ttf") format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  --h: 100px;
+  --dur: 2.6s;
+  --ease: cubic-bezier(.4, 0, .2, 1);
+}
+
+body {
+  margin: 0;
+  background: #fff;
+}
+
+#all {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+  min-height: calc(100vh - 100px);
+  padding: 50px 0;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tile img {
+  height: var(--h);
+}
+
+.art {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  line-height: 0;
+  filter: blur(0);
+  transition: filter var(--dur) var(--ease);
+}
+
+.art img {
+  display: block;
+  width: auto;
+}
+
+.art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  -webkit-backdrop-filter: blur(0);
+  backdrop-filter: blur(0);
+  transition: backdrop-filter var(--dur) var(--ease), -webkit-backdrop-filter var(--dur) var(--ease);
+}
+
+.tile:hover .art::after,
+.big:hover::after {
+  -webkit-backdrop-filter: blur(calc(var(--s, var(--h)) * .025));
+  backdrop-filter: blur(calc(var(--s, var(--h)) * .025));
+}
+
+.tile:hover .art,
+.big:hover {
+  filter: blur(calc(var(--s, var(--h)) * .006));
+}
+
+.veil {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  background: rgba(255, 255, 255, .58);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .45s ease, visibility 0s linear .45s;
+}
+
+body:has(.detail:target) .veil {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .45s ease;
+}
+
+.detail {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  flex-direction: column;
+}
+
+.detail:target {
+  visibility: visible;
+}
+
+.close {
+  position: absolute;
+  inset: 0;
+  cursor: default;
+}
+
+.big {
+  --s: 72vh;
+  position: relative;
+  z-index: 1;
+}
+
+.big img {
+  height: var(--s);
+  max-width: calc(100vw - 160px);
+  object-fit: contain;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  width: 150px;
+}
+
+.prev {
+  left: 0;
+  cursor: url("arrows/prev.svg") 7 12, w-resize;
+}
+
+.next {
+  right: 0;
+  cursor: url("arrows/next.svg") 7 12, e-resize;
+}
+
+.caption {
+  margin: 25px 0 0;
+  font-family: "Averia Libre";
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #000;
+  pointer-events: none;
+}
+
+.caption span {
+  margin-left: 2em;
+}

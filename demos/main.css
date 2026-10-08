@@ -1,0 +1,69 @@
+.frame {
+    background-color:yellowgreen;
+    width: 100px;
+    height: 20px;
+    top: 100px;
+    left: 200px;
+    border-radius: 40px;
+    position: relative;
+    transition-property: background-color rotate scale;
+    transition-duration: 500ms;
+    transition-timing-function: ease-out;
+}
+
+.frame:hover {
+    transform: rotate(20deg) scale(.5);
+    background-color: palevioletred;
+    filter:blur(10px);
+    transition-property: background-color rotate scale filter;
+    transition-duration: 1000ms;
+    transition-timing-function: ease-out;
+
+}
+
+.frame2 {
+    background-color:yellowgreen;
+    width: 100px;
+    height: 20px;
+    top: 60px;
+    left: 400px;
+    border-radius: 40px;
+    position: relative;
+    transition-property: background-color rotate scale;
+    transition-duration: 500ms;
+    transition-timing-function: ease-out;
+}
+
+.frame2:hover {
+    transform: rotate(20deg) scale(.5);
+    background-color: palevioletred;
+    filter:blur(10px);
+    transition-property: background-color rotate scale filter;
+    transition-duration: 1000ms;
+    transition-timing-function: ease-out;
+
+}
+
+.circle {
+    height: 300px;
+    width: 300px;
+    background-color: slateblue;
+    border-radius: 100%;
+    top: 80px;
+    left: 200px;
+    position: relative;
+    animation: colors 5000ms ease-out infinite;
+}
+
+@keyframes colors {
+    0% {
+        background-color: darkslateblue;
+    }
+    50% {
+        background-color: mediumslateblue;
+        scale: 0.5;
+    }
+    100% {
+        background-color: skyblue;
+    }
+}

@@ -5,6 +5,14 @@
   font-style: normal;
 }
 
+html {
+  cursor: url("arrows/eye.svg") 12 12, auto;
+}
+
+a {
+  cursor: inherit;
+}
+
 :root {
   --h: 100px;
   --dur: 2.6s;
@@ -104,7 +112,6 @@ body:has(.detail:target) .veil {
 .close {
   position: absolute;
   inset: 0;
-  cursor: default;
 }
 
 .big {

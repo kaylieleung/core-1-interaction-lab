@@ -65,15 +65,16 @@ body {
   transition: backdrop-filter var(--dur) var(--ease), -webkit-backdrop-filter var(--dur) var(--ease);
 }
 
-.tile:hover .art::after,
-.big:hover::after {
-  -webkit-backdrop-filter: blur(calc(var(--s, var(--h)) * .025));
-  backdrop-filter: blur(calc(var(--s, var(--h)) * .025));
+.art img {
+  display: block;
+  width: auto;
+  filter: blur(0);
+  transition: filter var(--dur) var(--ease);
 }
 
-.tile:hover .art,
-.big:hover {
-  filter: blur(calc(var(--s, var(--h)) * .006));
+.tile:hover .art img,
+.big:hover img {
+  filter: blur(calc(var(--s, var(--h)) * .025));
 }
 
 .veil {
@@ -81,7 +82,6 @@ body {
   inset: 0;
   z-index: 5;
   background: rgba(255, 255, 255, .58);
-  -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
   opacity: 0;
   visibility: hidden;

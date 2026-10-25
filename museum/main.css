@@ -1,0 +1,136 @@
+@font-face {
+    font-family: "Beth Ellen";
+    src: url(BethEllen-Regular.ttf);
+}
+
+:root {
+    --dot: 3px;
+    --h: calc(100vh - 88px);
+    --w: calc(var(--h) * 960 / 1055);
+}
+
+body {
+    margin: 0;
+    background: white;
+    color: black;
+    font-family: "Beth Ellen";
+}
+
+aside {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background: white;
+    color: black;
+    width: 240px;
+    padding: 24px;
+    box-sizing: border-box;
+    position: fixed;
+    display: flex;
+    border-right: 1px solid black;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 24px;
+    line-height: 20px;
+    color: #5e6ee5;
+}
+
+aside img {
+    width: 100%;
+    display: block;
+    margin-top: 8px;
+}
+
+main {
+    margin-left: 240px;
+    padding: 56px 0 32px;
+}
+
+.sheet {
+    position: sticky;
+    top: 56px;
+    width: var(--w);
+    height: var(--h);
+    margin: 0 auto;
+    background: white;
+}
+
+.sheet + .sheet {
+    margin-top: 60vh;
+    mix-blend-mode: multiply;
+}
+
+.y {
+    outline: 1px solid black;
+}
+
+.art {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    background: var(--img) center / cover;
+}
+
+.art::after {
+    content: "";
+    position: absolute;
+    inset: -50%;
+    background: radial-gradient(black, white) 0 0 / var(--dot) var(--dot);
+    mix-blend-mode: overlay;
+    transform: rotate(var(--angle));
+}
+
+.sheet::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--ink);
+    mix-blend-mode: screen;
+}
+
+.y {
+    --img: url(yellow.png);
+    --ink: #FFE800;
+    --angle: 0deg;
+    --x: 0%;
+}
+
+.m {
+    --img: url(magenta.png);
+    --ink: #FF48B0;
+    --angle: 75deg;
+    --x: 33.33%;
+}
+
+.c {
+    --img: url(cyan.png);
+    --ink: #5EC8E5;
+    --angle: 15deg;
+    --x: 66.67%;
+}
+
+.k {
+    --img: url(black.png);
+    --ink: #000000;
+    --angle: 45deg;
+    --x: 100%;
+}
+
+.label {
+    position: absolute;
+    bottom: 100%;
+    left: var(--x);
+    translate: calc(var(--x) * -1) 0;
+    margin: 0;
+    padding-bottom: 6px;
+    font-size: 11px;
+    z-index: 1;
+    color: var(--ink);
+}
+
+.y .label { color: #ffdd00; }

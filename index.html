@@ -2,57 +2,110 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>kaylie leung — directory</title>
-        <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
+  
             @font-face {
-                font-family: "Satoshi";
-                src: url("fonts/Satoshi-Bold.otf");
-                font-weight: 700;
+                font-family: "Geist Mono";
+                src: url(GeistMono-VariableFont_wght\ copy.ttf);
             }
 
             body {
-                background: #32131A;
-                height: 100vh;
+                background: black;
+                min-height: 100vh;
                 margin: 0;
+                padding: 64px 24px;
+                box-sizing: border-box;
                 display: grid;
                 place-items: center;
             }
 
             .directory {
                 display: grid;
-                grid-template-columns: repeat(2, 300px);
-                gap: 50px;
+                grid-template-columns: repeat(3, minmax(0, 360px));
+                gap: 32px;
             }
 
-            .directory a {
-                color: #ECE65C;
-                font-family: "Satoshi", sans-serif;
-                font-weight: 700;
-                font-size: 24px;
-                height: 80px;
-                padding-top: 4px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border-radius: 40px;
+            .card {
+                position: relative;
+                aspect-ratio: 16 / 10;
+                border-radius: 24px;
+                overflow: hidden;
+                display: grid;
+                place-items: center;
+                color: white;
+                font-family: "Geist Mono", monospace;
+                font-size: 16px;
                 text-decoration: none;
+                transition: transform 0.25s ease;
+                isolation: isolate;
             }
 
-            .red    { background: #F15143; }
-            .pink   { background: #F17B9E; }
-            .purple { background: #B04F85; }
-            .orange { background: #FA7528; }
+            .card:hover {
+                transform: scale(1.05);
+            }
+
+            .card iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 400%;
+                height: 400%;
+                border: 0;
+                transform: scale(0.25);
+                transform-origin: top left;
+                pointer-events: none;
+                z-index: 0;
+            }
+
+            .card::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.35);
+                backdrop-filter: blur(6px);
+                z-index: 1;
+                transition: backdrop-filter 0.25s ease, background 0.25s ease;
+            }
+
+            .card:hover::before {
+                background: rgba(0, 0, 0, 0.2);
+                backdrop-filter: blur(3px);
+            }
+
+            .card span {
+                position: relative;
+                z-index: 2;
+                padding: 8px 18px;
+                border: 1px solid white;
+                border-radius: 999px;
+            }
         </style>
     </head>
+    
     <body>
         <nav class="directory">
-            <a class="red" href="journal-walk/index.html">journal a walk</a>
-            <a class="pink" href="interview/index.html">interview</a>
-            <a class="purple" href="recipe/index.html">recipe</a>
-            <a class="orange" href="visual-only/index.html">visual-only</a>
+            <a class="card" href="journal-walk/index.html">
+                <iframe src="journal-walk/index.html" tabindex="-1" loading="lazy"></iframe>
+                <span>journal a walk</span>
+            </a>
+            <a class="card" href="interview/index.html">
+                <iframe src="interview/index.html" tabindex="-1" loading="lazy"></iframe>
+                <span>interview</span>
+            </a>
+            <a class="card" href="recipe/index.html">
+                <iframe src="recipe/index.html" tabindex="-1" loading="lazy"></iframe>
+                <span>recipe</span>
+            </a>
+            <a class="card" href="visual-only/index.html">
+                <iframe src="visual-only/index.html" tabindex="-1" loading="lazy"></iframe>
+                <span>visual-only</span>
+            </a>
+            <a class="card" href="museum/index.html">
+                <iframe src="museum/index.html" tabindex="-1" loading="lazy"></iframe>
+                <span>museum recreation</span>
+            </a>
         </nav>
     </body>
 </html>

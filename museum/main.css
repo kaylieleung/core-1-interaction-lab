@@ -65,8 +65,8 @@ main {
     mix-blend-mode: multiply;
 }
 
-.y {
-    outline: 1px solid black;
+.frame { 
+    outline: 1px solid black; 
 }
 
 .art {

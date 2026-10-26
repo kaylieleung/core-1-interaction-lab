@@ -6,7 +6,7 @@
 :root {
     --dot: 3px;
     --h: calc(100vh - 88px);
-    --w: calc(var(--h) * 960 / 1055);
+    --w: calc(var(--h) * 500 / 620);
 }
 
 body {
@@ -94,28 +94,28 @@ main {
 }
 
 .y {
-    --img: url(yellow.png);
+    --img: url(yellow1.png);
     --ink: #FFE800;
     --angle: 0deg;
     --x: 0%;
 }
 
 .m {
-    --img: url(magenta.png);
+    --img: url(magenta1.png);
     --ink: #FF48B0;
     --angle: 75deg;
     --x: 33.33%;
 }
 
 .c {
-    --img: url(cyan.png);
+    --img: url(cyan1.png);
     --ink: #5EC8E5;
     --angle: 15deg;
     --x: 66.67%;
 }
 
 .k {
-    --img: url(black.png);
+    --img: url(black1.png);
     --ink: #000000;
     --angle: 45deg;
     --x: 100%;
